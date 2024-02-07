@@ -49,11 +49,14 @@ def get_top_n_rankings(n):
     return data
 
 def get_conference_rankings(conf):
+    conference_rank = 1
     data = get_rankings()[1:]
     response = []
     for entry in data:
         if entry['conference'] == conf:
+            entry['conference_rank'] = conference_rank
             response.append(entry)
+            conference_rank += 1
     return response
 
 def get_school(school):
